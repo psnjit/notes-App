@@ -3,14 +3,12 @@ const createBtn=document.querySelector(".btn");
 let notes= document.querySelectorAll(".input-box");
 
 function updateStorage(){
-    localStorage.setItem("note", notesContainer.innerHTML);
+    localStorage.setItem("ps_note", notesContainer.innerHTML);
 }
 
 function deleteButtonEventListener(Event){
-    console.log("Delete");
     Event.target.parentNode.remove();
     updateStorage();
-    Event.target.removeEventListener('click', deleteButtonEventListener);
 }
 
 createBtn.addEventListener("click", ()=>{
@@ -31,7 +29,7 @@ createBtn.addEventListener("click", ()=>{
 })
 
 function loadNotes(){
-    notesContainer.innerHTML=localStorage.getItem("note");
+    notesContainer.innerHTML=localStorage.getItem("ps_note");
 }
 
 loadNotes();
